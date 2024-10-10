@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Barrio"
+      rel="stylesheet"
+    />
+    <title>React App</title>
+    <link href="/tetris/static/css/main.50d9fb09.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script
+      type="text/javascript"
+      src="/tetris/static/js/main.1db4a4f0.js"
+    ></script>
+    <script>
+      function resizeIframe() {
+        const height = document.body.scrollHeight; // Get the content height
+        window.parent.postMessage(height, "*"); // Send the height to the parent window
+      }
+
+      window.onload = resizeIframe; // resize iframe on load
+      window.onresize = resizeIframe; // resize iframe on resize of window
+    </script>
+  </body>
+</html>

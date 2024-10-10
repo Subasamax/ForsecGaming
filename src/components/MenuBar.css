@@ -1,0 +1,33 @@
+/* src/MenuBar.css */
+.menu-bar {
+  background-color: #7a87a3;
+  color: #ffffff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-title {
+  margin: 0;
+}
+
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.menu li {
+  margin-left: 20px;
+}
+
+.menu a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
