@@ -7,9 +7,11 @@ const cookieParser = require("cookie-parser");
 
 // Import routes
 const gamesRouter = require("./routes/games-route");
+const staticRouter = require("./routes/static_route");
 const userRouter = require("./routes/user_routes");
 const authRouter = require("./routes/oauth");
 const requestRouter = require("./routes/request");
+const uploadRouter = require("./routes/upload_route");
 
 const PORT = process.env.PORT || 3001;
 
@@ -30,11 +32,30 @@ app.use(cookieParser());
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: false })); // for parsing application/x-www-form-urlencoded
 
-// Implement games route
-app.use("/games", gamesRouter);
+// Implement routes
 app.use("/users", userRouter);
 app.use("/oauth", authRouter);
 app.use("/request", requestRouter);
+app.use("/upload", uploadRouter);
+
+// Set custom Content Security Policy
+app.use((req, res, next) => {
+  res.setHeader(
+    // allows frames for self
+    "Content-Security-Policy",
+    "frame-ancestors 'self' http://localhost:3000;"
+  );
+  next(); // sends to next route
+});
+
+app.use("/games", gamesRouter);
+
+// route to serve static files for the games
+app.use("/:gameName/static", (req, res, next) => {
+  //console.log(`Received request for: ${req.url}`);
+  req.gameName = req.params.gameName; // set gameName for the static router
+  staticRouter(req, res, next); // Call static router
+});
 
 // Implement 500 error route
 app.use((err, _req, res, _next) => {

@@ -51,7 +51,7 @@ const Games = () => {
       <h1>Tetris</h1>
       <iframe
         ref={iframeRef}
-        src="/tetris/index.html"
+        src={`http://localhost:3001/games/play/tetris`} // Updated URL
         title="tetris"
         style={{
           width: "200%",
@@ -79,7 +79,7 @@ const Games = () => {
 export default Games;
 
 //https://github.com/porkopek/react-tetris
-// {`http://localhost:3001/games/play/tetris`} // Updated URL
+//
 // <iframe
 // ref={iframeRef}
 //

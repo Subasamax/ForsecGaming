@@ -1,5 +1,7 @@
 // Import express
 const express = require("express");
+const path = require("path");
+const fs = require("fs");
 
 // Import games-controller
 const gamesRoutes = require("./../controllers/games-controller.js");
@@ -32,5 +34,36 @@ router.put("/delete", (req, res) => {
 router.put("/reset", (req, res) => {
   gamesRoutes.gamesReset(req, res);
 });
+
+// Serve static files (JS, CSS, images) from the specific game's directory
+// router.use("/play/:gameName", (req, res, next) => {
+//   const gameName = req.params.gameName;
+//   const direct = path.join(__dirname, "/../published", gameName);
+//   console.log(direct);
+//   express.static(direct)(req, res, next);
+// });
+
+// Catch-all for static files without needing the /play/:gameName prefix
+router.use("/play/:gameName/static/*", (req, res, next) => {
+  const gameName = req.params.gameName.toLowerCase(); // Ensure case consistency
+  const staticDir = path.join(__dirname, "/../published", gameName);
+  console.log(staticDir);
+  express.static(staticDir)(req, res, next);
+});
+
+// Serve the index.html file for a specific game
+router.get("/play/:gameName", (req, res) => {
+  const gameName = req.params.gameName;
+  const gamePath = path.join(__dirname, "/../published", gameName);
+  console.log(gameName);
+
+  res.sendFile(path.join(gamePath, "index.html"), (err) => {
+    if (err) {
+      console.log(err);
+      res.status(err.status).send("Game not found");
+    }
+  });
+});
+
 // Export router
 module.exports = router;
