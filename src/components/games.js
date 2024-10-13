@@ -49,16 +49,15 @@ const Games = () => {
   return (
     <div style={styles.container}>
       <h1>Tetris</h1>
-
       <iframe
         ref={iframeRef}
         src="/tetris/index.html"
+        title="tetris"
         style={{
           width: "200%",
           height: "100vh",
           border: "none",
         }}
-        title="Tetris"
       />
       <button
         onClick={toggleFullScreen}
@@ -80,3 +79,10 @@ const Games = () => {
 export default Games;
 
 //https://github.com/porkopek/react-tetris
+// {`http://localhost:3001/games/play/tetris`} // Updated URL
+// <iframe
+// ref={iframeRef}
+//
+
+// title="Tetris"
+// />
