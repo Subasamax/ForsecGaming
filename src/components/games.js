@@ -51,7 +51,7 @@ const Games = () => {
       <h1>Tetris</h1>
       <iframe
         ref={iframeRef}
-        src={`http://localhost:3001/games/play/tetris`} // Updated URL
+        src={`http://localhost:3001/games/play/Tetris`} // Updated URL
         title="tetris"
         style={{
           width: "200%",
