@@ -1,0 +1,33 @@
+.container {
+  background-color: #282c34;
+  min-height: 100vh;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* Allows items to stretch and fill available space equally */
+  align-items: center;
+  justify-content: space-evenly; /* Distributes items evenly */
+  font-size: calc(10px + 2vmin);
+  color: white;
+  overflow: hidden;
+}
+
+.item {
+  background: #282c34;
+  justify-content: space-evenly; /* Distributes items evenly */
+  padding: 10px;
+  width: 900px; /* Ensures items take full width */
+  overflow: hidden; /* Prevent content from overflowing */
+  position: relative; /* Optional, can be fixed/absolute as needed */
+}
+
+.form-group {
+  margin-bottom: 20px; /* Adjust spacing between form groups */
+  justify-content: center;
+}
+
+.form-label {
+  margin-bottom: 5px; /* Space between label and input */
+  justify-content: center;
+  pointer-events: none; /* Prevents clicks on the entire item */
+}

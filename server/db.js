@@ -30,10 +30,11 @@ async function createGamesTable() {
       .createTable("games", (table) => {
         table.increments("id").primary();
         table.string("author"); // author of game, account identifier google unique id
+        table.string("author_ID");
         table.string("title"); // Title of the game
         table.string("pubDate"); // Date posted
         table.integer("rating"); // Rating
-        table.binary("image"); // Image of the game
+        table.string("description");
       })
       .catch((error) => {
         console.error(`There was an error creating table: ${error}`);
@@ -87,6 +88,11 @@ async function dropGamesTable() {
 
 async function setupDatabase() {
   try {
+    reset = false;
+    if ((await knex.schema.hasTable("users")) && reset) {
+      await dropGamesTable();
+      return;
+    }
     await createGamesTable();
     await createUsersTable();
     knex
@@ -108,8 +114,6 @@ async function setupDatabase() {
 setupDatabase();
 // Run the function
 // Export the database
-
-//dropGamesTable();
 
 // Export the database
 module.exports = knex;

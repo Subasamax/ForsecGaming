@@ -9,11 +9,13 @@ function navigate(url) {
 }
 
 async function auth() {
+  console.log("in auth");
   const response = await fetch("http://localhost:3001/request", {
     // backend request route
     method: "post",
   });
   const data = await response.json(); // gets url for auth request
+  console.log(data);
   navigate(data.url); // navigates to url
 }
 
@@ -62,6 +64,9 @@ const MenuBar = () => {
         <ul className="menu">
           <li>
             <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/publish">Publish Game</Link>
           </li>
           <li>
             <Link to="/games">Games</Link>

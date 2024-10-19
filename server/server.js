@@ -8,6 +8,7 @@ const cookieParser = require("cookie-parser");
 // Import routes
 const gamesRouter = require("./routes/games-route");
 const staticRouter = require("./routes/static_route");
+const photoRouter = require("./routes/staticPhoto");
 const userRouter = require("./routes/user_routes");
 const authRouter = require("./routes/oauth");
 const requestRouter = require("./routes/request");
@@ -24,6 +25,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
 app.use(helmet());
 app.use(compression());
 app.use(cookieParser());
@@ -38,6 +40,14 @@ app.use("/oauth", authRouter);
 app.use("/request", requestRouter);
 app.use("/upload", uploadRouter);
 
+// route to serve static files for the games
+app.use("/:gameName/static", (req, res, next) => {
+  //console.log(`Received request for: ${req.url}`);
+  req.gameName = req.params.gameName; // set gameName for the static router
+  res.setHeader("Cross-Origin-Resource-Policy", "same-site"); // or 'same-site' if appropriate
+  staticRouter(req, res, next); // Call static router
+});
+
 // Set custom Content Security Policy
 app.use((req, res, next) => {
   res.setHeader(
@@ -49,13 +59,6 @@ app.use((req, res, next) => {
 });
 
 app.use("/games", gamesRouter);
-
-// route to serve static files for the games
-app.use("/:gameName/static", (req, res, next) => {
-  //console.log(`Received request for: ${req.url}`);
-  req.gameName = req.params.gameName; // set gameName for the static router
-  staticRouter(req, res, next); // Call static router
-});
 
 // Implement 500 error route
 app.use((err, _req, res, _next) => {

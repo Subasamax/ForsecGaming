@@ -46,15 +46,15 @@ router.put("/reset", (req, res) => {
 // Catch-all for static files without needing the /play/:gameName prefix
 router.use("/play/:gameName/static/*", (req, res, next) => {
   const gameName = req.params.gameName.toLowerCase(); // Ensure case consistency
-  const staticDir = path.join(__dirname, "/../published", gameName);
+  const staticDir = path.join(__dirname, "/../published/games", gameName);
   console.log(staticDir);
   express.static(staticDir)(req, res, next);
 });
 
 // Serve the index.html file for a specific game
-router.get("/play/:gameName", (req, res) => {
+router.get("/:gameName/play", (req, res) => {
   const gameName = req.params.gameName;
-  const gamePath = path.join(__dirname, "/../published", gameName);
+  const gamePath = path.join(__dirname, "/../published/games", gameName);
   console.log(gameName);
 
   res.sendFile(path.join(gamePath, "index.html"), (err) => {
@@ -63,6 +63,34 @@ router.get("/play/:gameName", (req, res) => {
       res.status(err.status).send("Game not found");
     }
   });
+});
+
+// Serve the index.html file for a specific game
+router.get("/:gameName/*", (req, res) => {
+  const gameName = req.params.gameName.toLowerCase(); // Ensure case consistency
+  const staticDir = path.join(
+    __dirname,
+    "/../published/games",
+    gameName,
+    req.params[0]
+  );
+  res.setHeader("Cross-Origin-Resource-Policy", "same-site"); // or 'same-site' if appropriate
+  // Check if the file exists
+  fs.stat(staticDir, (err) => {
+    if (err) {
+      // checks for err
+      if (err.code === "ENOENT") {
+        // checks to see if the file exists at specified path, file not found
+        return res.status(404).send("Photo not found"); // sends back 404 response
+      }
+      // Some other error occurred
+      console.error(err); // log error
+      res.status(404).send(`Error: ${err}`);
+    }
+    // file exists so send it
+    res.sendFile(staticDir);
+  });
+  return;
 });
 
 // Export router

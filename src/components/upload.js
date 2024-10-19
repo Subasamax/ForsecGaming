@@ -29,6 +29,7 @@ const UploadForm = () => {
       const response = await fetch("http://localhost:3001/upload", {
         method: "POST", // post
         body: formData, // file
+        credentials: "include", // Important for sending cookies
       });
       const result = await response.text(); // gets result
       alert(result); // dialog box with the results

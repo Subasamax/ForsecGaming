@@ -1,6 +1,7 @@
 // Import database
 const knex = require("./../db");
 const dotenv = require("dotenv");
+const resetTokens = require("./resetTokens"); // Adjust the path as necessary
 dotenv.config();
 const { OAuth2Client } = require("google-auth-library");
 const oAuth2Client = new OAuth2Client(process.env.CLIENT_ID); // might not need
@@ -27,33 +28,6 @@ async function getUserData(access_token) {
   }
 
   // error checking here later!!
-}
-
-// update specific user
-async function resetTokens(refresh_token) {
-  // Find specific user in the database and update it
-  const redirectUrl = "http://localhost:3001/oauth";
-  const client = new OAuth2Client(
-    process.env.CLIENT_ID,
-    process.env.CLIENT_SECRET,
-    redirectUrl
-  );
-  var token;
-  try {
-    await client.setCredentials({ refresh_token: refresh_token });
-    const tokens = await client.refreshAccessToken();
-    token = tokens;
-  } catch (err) {
-    return {
-      success: false,
-      message: `Failed to use refresh token. Error: ${err}`,
-    };
-  }
-
-  return {
-    success: true,
-    credentials: token.credentials,
-  };
 }
 
 // Retrieve all games
@@ -188,9 +162,14 @@ exports.userUpdate = async (req, res) => {
 // update specific user
 exports.userData = async (req, res) => {
   // Find specific user in the database and update it
-  const id_token = req.cookies.id_token; // grabs access_token
+  var id_token = req.cookies.id_token; // grabs access_token
   const refresh_token = req.cookies.refresh_token;
-  if (!id_token && !refresh_token) {
+
+  if (
+    (!id_token && !refresh_token) ||
+    (id_token === "undefined" && refresh_token == "undefined")
+  ) {
+    console.log("get");
     return res // error res
       .status(401)
       .json({ message: "ID and refresh token is missing." });
@@ -216,6 +195,7 @@ exports.userData = async (req, res) => {
         sameSite: "Strict", // Protect against CSRF, makes sure cookies are only sent to same site requests
         maxAge: 3600000, // Set the cookie to expire in 1 hour (adjust as needed)
       });
+      id_token = response.credentials.idToken;
     } else {
       return res.status(401).json({
         message: `Need to log in again!`,
