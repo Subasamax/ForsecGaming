@@ -1,0 +1,18 @@
+.games-list {
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.games-list h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.games-list ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0;
+}
+
+.games-list li {
+  margin-bottom: 20px; /* Space between cards */
+}

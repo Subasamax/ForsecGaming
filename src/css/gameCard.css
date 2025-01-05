@@ -1,0 +1,20 @@
+.game-Screen-Shot {
+  display: block; /* Makes the link a block element */
+  width: 300px; /* Full width for responsive design */
+  height: 300px;
+  max-width: 300px; /* Maximum width of the card */
+  max-height: 300px;
+  margin: 3px auto; /* Center the card with margin */
+  border: 3px solid #ccc; /* Light gray border */
+  overflow: hidden; /* Ensures child elements don't overflow */
+  text-decoration: none; /* Removes underline from the link */
+}
+
+.title {
+  position: "absolute";
+  bottom: "10px";
+  left: "10px";
+  color: "white";
+
+  padding: "5px";
+}

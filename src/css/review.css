@@ -1,0 +1,89 @@
+.leaveReviewContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  margin-top: 1%;
+  width: 75%;
+  height: 100%;
+  gap: 20px;
+}
+
+.text {
+  font-size: 220%;
+  display: flex;
+  color: white;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+.submitReview {
+  background-color: green;
+  color: white;
+  padding: 0.75% 2%;
+  border: none;
+  border-radius: 30px;
+  margin-left: 4%;
+  /*cursor: pointer; */
+}
+
+.showReviewContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  color: white;
+  font-size: 200%;
+  margin-top: 1%;
+  width: 75%;
+  height: 100%;
+  gap: 5px;
+}
+
+.reviewDivider {
+  width: 60%; /* Remove default border */
+  height: 5px; /* Set the height of the line */
+  color: lightgoldenrodyellow;
+  background-color: lightgoldenrodyellow; /* Set the color of the line */
+  margin: 5px 0; /* Optional: Add space above and below the line */
+}
+
+.descriptionDivider {
+  width: 52%; /* Remove default border */
+  height: 3px; /* Set the height of the line */
+  color: lightblue;
+  background-color: lightblue; /* Set the color of the line */
+  margin: 5px 0; /* Optional: Add space above and below the line */
+}
+
+.reviewDescription {
+  padding-top: 1%;
+  text-align: start;
+  align-items: start;
+  display: block;
+  width: 50%;
+  font-size: 65%;
+  margin-left: 1%;
+  margin-right: 0;
+  padding-bottom: 1%;
+  color: white;
+}
+
+.reviewUsername {
+  font-size: 100%;
+  display: flex;
+  color: white;
+}
+
+.reviewDate {
+  font-size: 75%;
+  display: flex;
+  color: white;
+}

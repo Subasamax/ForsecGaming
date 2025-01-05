@@ -1,0 +1,73 @@
+/* src/MenuBar.css */
+.menu-bar {
+  background-color: #2b151f;
+  color: #ffffff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-title {
+  margin: 0;
+}
+
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.menu li {
+  margin-left: 20px;
+}
+
+.menu a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.titleImage {
+  display: flex;
+  background-size: contain;
+  background-position: center;
+  width: 15%;
+  height: 75px;
+}
+
+.button {
+  margin-right: 10px !important;
+  background-color: #352a40 !important;
+  color: white !important;
+}
+
+.button:hover {
+  background-color: #352a40 !important; /* Dark background on hover */
+  color: lightgreen !important; /* Light text on hover */
+}
+
+.logOut {
+  margin-right: 10px !important;
+  background-color: #352a40 !important;
+  color: white !important;
+}
+
+.logOut:hover {
+  background-color: #352a40 !important; /* Dark background on hover */
+  color: red !important; /* Light text on hover */
+}
+
+.link {
+  text-decoration: none !important; /* Remove underline */
+  color: inherit; /* Inherit the button's color */
+}
+
+.link:hover {
+  background-color: #352a40 !important; /* Dark background on hover */
+  color: lightgreen !important; /* Light text on hover */
+}

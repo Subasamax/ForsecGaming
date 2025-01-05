@@ -1,0 +1,100 @@
+.gamePage {
+  padding: 20px;
+  background-color: #282c34;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.gameContainer {
+  /*Parent of game Info*/
+  width: 100%; /* Full width for responsive design */
+  min-height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: start;
+}
+
+.gameInfo {
+  width: 100%; /* Full width for responsive design */
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  margin-left: 2%;
+}
+
+.gameHeader {
+  padding-left: 0%;
+  text-align: left;
+  font-size: 300%;
+  color: white;
+}
+
+.descriptionHeader {
+  display: block;
+  padding-left: 2%;
+  padding-bottom: 1%;
+  font-size: 220%;
+  text-align: left;
+  color: white;
+}
+
+.description {
+  padding-top: 1%;
+  text-align: center;
+  display: block;
+  width: 80%;
+  font-size: 150%;
+  margin-left: 10%;
+  margin-right: 0;
+  color: white;
+}
+
+.whiteDivider {
+  border: 50%; /* Remove default border */
+  height: 4px; /* Set the height of the line */
+  color: grey;
+  background-color: grey; /* Set the color of the line */
+  margin: 10px 0; /* Optional: Add space above and below the line */
+}
+
+.playButton {
+  background-color: green;
+  color: white;
+  padding: 0.75% 2%;
+  border: none;
+  border-radius: 30px;
+  /*cursor: pointer; */
+}
+
+.gameImage {
+  display: flex;
+  margin-left: 0;
+  margin-right: 0;
+  width: 30%; /* Make the image responsive and fill the container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image covers the container, without distortion */
+}
+
+.reviewsGrid {
+  display: flex;
+  flex-direction: column;
+}
+
+.gamePageRating {
+  padding-top: 1%;
+  margin-bottom: 1%;
+  font-size: 150%;
+  margin-left: 1%;
+  margin-right: 0;
+  color: gold;
+}
+
+.titleRating {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}

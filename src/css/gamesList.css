@@ -1,0 +1,39 @@
+.games-list {
+  padding: 20px;
+  background-color: #282c34;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.games-list h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.games-grid {
+  display: flex; /* Use flexbox */
+  flex-wrap: wrap; /* Allow items to wrap into multiple rows */
+  justify-content: left; /* Space between items */
+  gap: 20px; /* Space between items */
+}
+
+.games-grid > div {
+  flex: 0 1 calc(33.33% - 20px); /* Three items per row with some space */
+  margin-bottom: 20px; /* Space below each card */
+  box-sizing: border-box; /* Ensure padding and margin don't affect width */
+}
+
+.titleDivider {
+  width: 100%; /* Remove default border */
+  height: 5px; /* Set the height of the line */
+  color: lightgoldenrodyellow;
+  background-color: lightgoldenrodyellow; /* Set the color of the line */
+  margin: 5px 0; /* Optional: Add space above and below the line */
+}
+
+.title {
+  font-size: 40px;
+  color: #6e6ddf !important;
+}

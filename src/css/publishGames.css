@@ -1,0 +1,107 @@
+.publishContainer {
+  background-color: #282c34;
+  min-height: 100vh;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* Allows items to stretch and fill available space equally */
+  justify-content: start; /* Distributes items evenly */
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  overflow: hidden;
+}
+
+.item {
+  background: #282c34;
+  justify-content: center; /* Distributes items evenly */
+  padding: 10px;
+  width: 65%; /* Ensures items take full width */
+  overflow: hidden; /* Prevent content from overflowing */
+  position: relative; /* Optional, can be fixed/absolute as needed */
+  display: block;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 20px; /* Adjust spacing between form groups */
+  margin-top: 5%;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-label {
+  margin-bottom: 5px; /* Space between label and input */
+  justify-content: center;
+  pointer-events: none; /* Prevents clicks on the entire item */
+}
+
+.paragraph {
+  color: red;
+  padding-top: 1%;
+  text-align: center;
+  display: block;
+  width: 80%;
+  font-size: 90%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 2%;
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1%;
+  justify-content: center;
+  align-items: center; /* Centers items horizontally */
+  width: 100%;
+}
+
+.image_1 {
+  display: flex;
+  flex-direction: row;
+  padding-top: 1%;
+  justify-content: center;
+  width: 15%;
+}
+
+.image {
+  display: flex;
+  flex-direction: row;
+  padding-top: 1%;
+  justify-content: center;
+  width: 40%;
+}
+
+.hide {
+  width: 200px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.publishButton {
+  width: 400px;
+  font-size: 30px !important;
+  background-color: #271621 !important;
+  color: white !important;
+}
+
+.publishButton:hover {
+  background-color: #352a40 !important; /* Dark background on hover */
+  color: lightgreen !important; /* Light text on hover */
+}
+
+.instructionsButton {
+  width: 400px;
+  font-size: 30px !important;
+  background-color: #271621 !important;
+  color: white !important;
+}
+
+.publishButton:hover {
+  background-color: #352a40 !important; /* Dark background on hover */
+  color: lightgreen !important; /* Light text on hover */
+}

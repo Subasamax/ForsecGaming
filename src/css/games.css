@@ -1,0 +1,12 @@
+.gamestitle {
+  font-size: 40px;
+  color: #6e6ddf !important;
+}
+
+.gameDivider {
+  width: 80%; /* Remove default border */
+  height: 5px; /* Set the height of the line */
+  color: lightgoldenrodyellow;
+  background-color: lightgoldenrodyellow; /* Set the color of the line */
+  margin-bottom: 2%;
+}
