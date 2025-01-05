@@ -78,7 +78,7 @@ Bootstrap
 
 ## Running
 
-**NOTE: To work, you need to have a file called .env in the root folder of the project that has the ClIENT_ID, CLIENT_SECRET, and a STATE. This is for Google Auth purposes.**
+**NOTE: To work, you need to have a file called .env in the root folder of the project that has the ClIENT_ID, CLIENT_SECRET, and a STATE. This is for Google Auth purposes. I do not provide this for you.**
 
 To run use `npm install` to install all the packages.
 then run `npm run start`
